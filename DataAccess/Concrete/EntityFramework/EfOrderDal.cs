@@ -4,6 +4,6 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework;
 
-public class EfCustomerDal : EfEntityRepository<Customer, AppDbContext>, ICustomerDal
+public class EfOrderDal : EfEntityRepository<Order, AppDbContext>, IOrderDal
 {
 }

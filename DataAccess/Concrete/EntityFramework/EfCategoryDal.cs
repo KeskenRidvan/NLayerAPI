@@ -1,5 +1,9 @@
-﻿namespace DataAccess.Concrete.EntityFramework;
+﻿using Core.DataAccess.BaseRepository.Concrete.EntityFramework;
+using DataAccess.Abstract;
+using Entities.Concrete;
 
-public class EfCategoryDal
+namespace DataAccess.Concrete.EntityFramework;
+
+public class EfCategoryDal : EfEntityRepository<Category, AppDbContext>, ICategoryDal
 {
 }
