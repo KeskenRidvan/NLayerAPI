@@ -1,6 +1,5 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers;
@@ -37,7 +36,6 @@ public class ProductsController : ControllerBase
 	}
 
 	[HttpPost("add")]
-	[Authorize(Roles = "Product.Add")]
 	public IActionResult Add(Product product)
 	{
 		var result = _productService.Add(product);
