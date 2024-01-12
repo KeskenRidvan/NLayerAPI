@@ -4,6 +4,8 @@ using Business.Abstract;
 using Business.Concrete;
 using Castle.DynamicProxy;
 using Core.Utilities.Interceptors.Autofac.Concrete;
+using Core.Utilities.Security.JWT.Abstract;
+using Core.Utilities.Security.JWT.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using System.Reflection;
@@ -27,6 +29,11 @@ public class AutofacBusinessModule : Module
 		builder.RegisterType<CustomerManager>().As<ICustomerService>();
 		builder.RegisterType<EfCustomerDal>().As<ICustomerDal>();
 
+		builder.RegisterType<UserManager>().As<IUserService>();
+		builder.RegisterType<EfUserDal>().As<IUserDal>();
+
+		builder.RegisterType<AuthManager>().As<IAuthService>();
+		builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
 		var assembly = Assembly.GetExecutingAssembly();
 		builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces().EnableInterfaceInterceptors(new ProxyGenerationOptions()
